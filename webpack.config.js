@@ -6,17 +6,19 @@ var extractPlugin = new ExtractTestPlugin({
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var webpack = require('webpack');
-// var webpack = require('webpack');
+
+const isProd = process.argv.indexOf('-p') !== -1;
+
 module.exports = {
   entry: {
     main:'./src/js/main.js'
-    // user: './src/js/user.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
     // publicPath: '/dist'
   },
+  devtool: isProd ? '' : 'eval-source-map',
   module: {
     rules: [
       {
@@ -56,21 +58,12 @@ module.exports = {
     ]
   },
   plugins:[
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
-    }),
     extractPlugin,
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'src/index.html'
       // chunks: ['main']
     }),
-    // new HtmlWebpackPlugin({
-    //   filename: 'user.html',
-    //   template: 'src/user.html',
-    //   chunks: []
-    // }),
     new CleanWebpackPlugin(['dist'])
 
   ]
