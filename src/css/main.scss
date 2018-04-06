@@ -1,13 +1,8 @@
 @import "second";
 
-#todos_container {
-  width: 400px;
+#container{
   float: left;
-  min-height: 300px;
-  border: 1px solid darkblue;
-  .new_todo {
-    font-family: Roboto;
-    padding-left: 10px;
-    font-size: 20px;
-  }
+  width: 200px;
+  height: 500px;
+  border: 1px solid cornflowerblue;
 }

@@ -3,33 +3,38 @@ import {httpService} from "./http/http-service";
 import {printTodo} from "./helpers/todo-helper";
 
 
-let getTodosBtn = document.getElementById('get_todos');
-let todoInput = document.getElementById('todo_input');
-let addNewTodoBtn = document.getElementById('add_todo_btn');
+let addAllItemsBtn = document.getElementById('main_btn');
+let takeContainer = document.getElementById('container');
+let AddButton = document.getElementById('post_btn');
+let input = document.getElementById('my_input');
 
-getTodosBtn.onclick = () => {
-  httpService.getToDos((todosData) => {
-    printNames(todosData)
+addAllItemsBtn.onclick = () => {
+  httpService.getTodoItems((massiv) => {
+    massiv.map((value) => {
+      printItem(value.name);
+    })
   });
+  // let printItem = (val) => {
+  //   let newTag = document.createElement('p');
+  //   newTag.innerHTML = val;
+  //   newTag.className = 'newTodoName';
+  //   takeContainer.appendChild(newTag);
+  // }
 };
 
-let printNames = (todosData) => {
-  todosData.map( todo => {
-    printTodo(todo.name);
-  });
+let printItem = (val) => {
+  let newTag = document.createElement('p');
+  newTag.innerHTML = val;
+  newTag.className = 'newTodoName';
+  takeContainer.appendChild(newTag);
 };
 
-addNewTodoBtn.onclick = () => {
-  printFromInput();
-};
-
-function printFromInput() {
-  let inputValue = todoInput.value;
-  if (inputValue.length > 0) {
-    printTodo(inputValue);
-    httpService.postToDo(inputValue);
-    todoInput.value = '';
-  } else {
-    console.log('Enter todo Name');
+AddButton.onclick = () => {
+  let item = input.value;
+  if(item.length > 0){
+    printItem(item);
+    httpService.postInputElements(item);
+  }else{
+    alert('Enter todo Name');
   }
-}
+};
