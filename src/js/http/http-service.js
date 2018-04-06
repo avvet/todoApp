@@ -17,20 +17,7 @@ class HttpServiceClass{
       })
   }
 
-  postToDo(todoName) {
-    let newTodoObj = {
-      name: todoName,
-      completed:0
-    };
 
-    axios.post(BASE_URL + TODO_PL, newTodoObj)
-      .then(resp => {
-        console.log(resp);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }
 }
 
 let httpService = new HttpServiceClass();
