@@ -38,6 +38,16 @@
       "name": "task 5",
       "completed": 0,
       "id": 8
+    },
+    {
+      "name": "task 6",
+      "completed": 0,
+      "id": 9
+    },
+    {
+      "name": "task 7",
+      "completed": 0,
+      "id": 10
     }
   ]
 }
