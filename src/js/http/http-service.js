@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const BASE_URL = 'http://localhost:3000/';
-const USERS = 'users';
 const TODO_PL = 'todo';
 const DIVIDER = '/';
 
@@ -32,6 +31,5 @@ class HttpServiceClass{
       })
   }
 }
-
 let httpService = new HttpServiceClass();
 export {httpService};
