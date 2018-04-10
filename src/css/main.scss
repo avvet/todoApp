@@ -1,8 +1,56 @@
 @import "second";
+.wrapper{
+  width: 920px;
+  margin: 0 auto;
+  h1{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 30px;
+    text-align: center;
+  }
+  #container{
+    margin-top: 30px;
+    float: left;
+    width: 100%;
+    height: auto;
+    min-height: 50px;
+    border: 1px solid #ccc;
+    .new_class{
+      position: relative;
+      padding: 12px 8px 12px 40px;
+      background: #eee;
+      color: darkblue;
+      font-size: 18px;
+      transition: 0.2s;
+      cursor: pointer;
+      &:nth-child(odd) {
+        background: #f9f9f9;
+      }
+      &:hover {
+        background: #ddd;
+      }
+      .checkbox_class{
+        position: absolute;
+        left:15px;
+      }
+      .dlt_btn{
+        position: absolute;
+        right:20px;
+        width: 60px;
+        height: 20px;
 
-#container{
-  float: left;
-  width: 200px;
-  height: 500px;
-  border: 1px solid cornflowerblue;
+      }
+    }
+    .check{
+      background: #888 ;
+      color: #fff ;
+      text-decoration: line-through ;
+    }
+  }
+  .add_field_wrapper{
+    margin-top: 30px;
+    width: 100%;
+    float: left;
+  }
 }
+
