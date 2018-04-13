@@ -22,6 +22,14 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+          }
+        }
+      },
+      {
         test: /\.js$/,
         use: [
           {
@@ -56,6 +64,14 @@ module.exports = {
         ]
       }
     ]
+  },
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      'Components': './components',
+      'Styles': '../styles'
+    },
+    extensions: ['.js', '.vue', '.json']
   },
   plugins:[
     extractPlugin,
